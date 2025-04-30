@@ -120,6 +120,19 @@ async function generatePost(formData) {
   // Create facts bullet points
   const factsText = facts.map(fact => `• ${fact}`).join('\n');
   
+  // Platform-specific considerations
+  let platformGuidelines = '';
+  
+  if (platform === 'Twitter/X') {
+    platformGuidelines = '- Keep the content concise (ideally within 280 characters)\n- Consider adding 1-2 relevant hashtags that feel natural\n- Focus on sparking conversation';
+  } else if (platform === 'Instagram') {
+    platformGuidelines = '- Create visually descriptive content that complements a hypothetical image\n- Consider suggesting 2-3 relevant hashtags at the end\n- Focus on aesthetic and emotional elements';
+  } else if (platform === 'TikTok') {
+    platformGuidelines = '- Create conversational, authentic content as if speaking directly to viewers\n- Keep it casual and relatable with a personal tone\n- Consider referencing trends subtly if relevant';
+  } else if (platform === 'Facebook') {
+    platformGuidelines = '- Create slightly longer-form content that tells a complete story\n- Consider asking a thoughtful question to encourage engagement\n- Focus on content that might be shared within communities';
+  }
+  
   // Create prompt
   const prompt = `Generate a very subtle and non-promotional social media post for ${platform} in ${language}. 
 
@@ -134,6 +147,7 @@ IMPORTANT GUIDELINES:
 - The reader should not feel they're being sold to at all
 - The mention of the topic/product should feel incidental, not the focus
 - Remember: "Facts tell, stories sell" - but the "selling" should be invisible
+${platformGuidelines ? `\nPLATFORM-SPECIFIC GUIDELINES:\n${platformGuidelines}` : ''}
 
 Create an authentic post that someone would genuinely want to share because it's helpful or interesting, not because it's promoting something.`;
 

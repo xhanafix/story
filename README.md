@@ -4,7 +4,7 @@ A client-side web application that creates authentic, non-promotional social med
 
 ## Features
 
-- Create authentic social content for Facebook, Instagram, and TikTok
+- Create authentic social content for Facebook, Instagram, Twitter/X, and TikTok
 - Focus on genuine storytelling rather than promotional messaging
 - Input your topic and key facts to transform into natural, shareable content
 - Choose between English or Bahasa Malaysia
